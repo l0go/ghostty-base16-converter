@@ -103,7 +103,7 @@ Main.generateGhosttyConfig = function(scheme) {
 	while(_g < _g1.length) {
 		var base = _g1[_g];
 		++_g;
-		buf_b += Std.string("\npallette = " + i + "=#");
+		buf_b += Std.string("\npalette = " + i + "=#");
 		buf_b += Std.string(scheme.get("base" + base));
 		++i;
 	}
