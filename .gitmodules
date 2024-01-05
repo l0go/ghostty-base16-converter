@@ -1,0 +1,3 @@
+[submodule "vendor/haxe-yaml"]
+	path = vendor/haxe-yaml
+	url = https://github.com/Snirozu/haxe-yaml
