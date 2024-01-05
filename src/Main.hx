@@ -1,7 +1,6 @@
 package;
 
 import yaml.Yaml;
-import yaml.Parser;
 import js.Browser;
 import js.html.TextAreaElement;
 
@@ -31,7 +30,7 @@ class Main {
 			textareaIn.classList.add("invalid");
 		}
 	}
-	
+
 	public static function generateGhosttyConfig(scheme: Dynamic): String {
 		var buf = new StringBuf();
 
@@ -42,14 +41,17 @@ class Main {
 		// Background, foreground
 		buf.add('background = ${scheme.get("base00")}\n');
 		buf.add('foreground = ${scheme.get("base05")}\n\n');
-		
+
 		// Selection
 		buf.add('selection-background = ${scheme.get("base02")}\n');
 		buf.add('selection-foreground = ${scheme.get("base00")}\n');
 
 		// Pallette
 		var i = 0;
-		for (base in ["00", "08", "0B", "0A", "0D", "0E", "0C", "05", "03", "08", "0B", "0A", "0D", "0E", "0C", "07", "09", "0F", "01", "02", "04", "06"]) {
+		for (base in [
+			"00", "08", "0B", "0A", "0D", "0E", "0C", "05", "03", "08", "0B",
+			"0A", "0D", "0E", "0C", "07", "09", "0F", "01", "02", "04", "06"
+		]) {
 			buf.add('\npallette = $i=#');
 			buf.add(scheme.get("base" + base));
 			i++;
