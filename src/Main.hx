@@ -46,13 +46,13 @@ class Main {
 		buf.add('selection-background = ${scheme.get("base02")}\n');
 		buf.add('selection-foreground = ${scheme.get("base00")}\n');
 
-		// Pallette
+		// Palette
 		var i = 0;
 		for (base in [
 			"00", "08", "0B", "0A", "0D", "0E", "0C", "05", "03", "08", "0B",
 			"0A", "0D", "0E", "0C", "07", "09", "0F", "01", "02", "04", "06"
 		]) {
-			buf.add('\npallette = $i=#');
+			buf.add('\npalette = $i=#');
 			buf.add(scheme.get("base" + base));
 			i++;
 		}
