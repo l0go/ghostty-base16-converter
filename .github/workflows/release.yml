@@ -1,0 +1,27 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+      - actions
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.3.3
+      - name: Build 
+        working-directory: .
+        run: |
+          haxe build.hxml
+          touch project/.nojekyll
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+          publish_dir: project/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
